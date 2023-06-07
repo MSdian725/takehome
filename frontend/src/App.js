@@ -14,4 +14,33 @@ function App() {
   setData(jsonData.student);
   }
 
-  co
+  const headings = ["Sl no.", "name", "age", "hobbies"];
+  return (
+    <div className="App">
+      <table border={4}>
+        <thead>
+          <tr>
+            {headings.map(h => <th key={h}>{h.toUpperCase()}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+        {data.map((row, i) => <tr key={i+1}>
+          <td>{i+1}</td>
+          <td>{row.age}</td>
+          <td>{row.name}</td>
+          <td>
+            <table border={2}>
+              <tr>
+                {row.hobbies.map(hobbie => <td key={hobbie}>{hobbie}</td>)}
+              </tr>
+            </table>
+          </td>
+          </tr>)}
+          
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default App;
